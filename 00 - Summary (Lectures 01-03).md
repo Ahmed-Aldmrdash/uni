@@ -109,7 +109,7 @@ scheme       host      port       path            query       fragment
 | 1995 | Internet Explorer + اختراع **JavaScript** |
 | 2004 | عصر **Web 2.0** (Facebook، محتوى من اليوزرز) + Firefox 1.0 + انتشار AJAX |
 | 2008 | نزول Google Chrome |
-| 2010s | Mobile-first، responsive design، SPAs، HTML5 (2014) ← HTML Living Standard (2019) |
+| 2010s | Mobile-first، responsive design، SPAs، HTML5 (2014) وبعده HTML Living Standard (2019) |
 | 2020s | HTTP/3 (2022)، ويب بالـ AI، مفاهيم Web3، serverless |
 
 ## 1.8 Internet vs World Wide Web
@@ -126,7 +126,7 @@ scheme       host      port       path            query       fragment
 
 ## 1.9 مكونات أي صفحة ويب
 
-**Content** ← **Structure (HTML)** ← **Style (CSS)** ← **Behavior (JavaScript)**
+**Content** → **Structure (HTML)** → **Style (CSS)** → **Behavior (JavaScript)**
 
 > 💡 HTML هو الهيكل العظمي، CSS هو الجلد والهدوم، JavaScript هو الحركة.
 
@@ -137,7 +137,7 @@ scheme       host      port       path            query       fragment
 | # | الخطوة | بيحصل إيه |
 |---|---|---|
 | 1 | **DNS lookup** | المتصفح يسأل DNS Resolver عن IP بتاع `example.com` ← يرجع `203.0.113.10` |
-| 2 | **TCP handshake** | فتح اتصال موثوق: `SYN` ← `SYN-ACK` ← `ACK` |
+| 2 | **TCP handshake** | فتح اتصال موثوق بـ 3 رسايل: `SYN` وبعدها `SYN-ACK` وبعدها `ACK` |
 | 3 | **TLS handshake** | التأكد من الـ certificate وعمل session keys للتشفير |
 | 4 | **HTTP GET /** | المتصفح يطلب الصفحة ← السيرفر يرد `200 OK` + HTML document |
 | 5 | **Parse HTML → DOM** | المتصفح يقرا الـ HTML ويبني الـ DOM، ويطلب ملفات CSS و JS والصور |
@@ -204,7 +204,7 @@ Content-Type: text/html         ← response header
 | **Chrome / Firefox / Edge** | المتصفح + DevTools |
 | **validator.w3.org** | بيتأكد إن الـ HTML بتاعك صح |
 | **Git + GitHub** | version control ونشر الشغل |
-| **GitHub Pages** | استضافة مجانية: Settings ← Pages ← Deploy from branch `main` ← الموقع يبقى على `https://<you>.github.io/<repo>/` |
+| **GitHub Pages** | استضافة مجانية: من Settings ادخل Pages واختار Deploy from branch `main`، والموقع يبقى على `https://<you>.github.io/<repo>/` |
 
 ```bash
 git clone https://github.com/<you>/web-programming.git   # تنزّل الريبو عندك
@@ -358,7 +358,7 @@ console.log('fragment:', url.hash);                  // #setup
 
 - `<p>` = فقرة. `<h1>` لحد `<h6>` = 6 مستويات عناوين (h1 الأكبر، h6 الأصغر).
 - الاتنين **block-level**، والمتصفح بيحط مسافة فوقهم وتحتهم أوتوماتيك.
-- استخدم العناوين عشان تعمل **outline منطقي** للصفحة — **متنطّش مستويات** (مثلاً h1 ← h3 من غير h2 غلط).
+- استخدم العناوين عشان تعمل **outline منطقي** للصفحة — **متنطّش مستويات** (مثلاً تنط من h1 لـ h3 من غير h2 = غلط).
 - اختار العنوان حسب **مستواه في الـ outline مش حجمه** — الحجم شغلة CSS.
 - قاعدة: **`<h1>` واحد بس** في الصفحة.
 
@@ -458,7 +458,7 @@ site/
 | الحاجة | بتعمل إيه |
 |---|---|
 | `srcset` | قايمة نسخ من **نفس** الصورة بأحجام مختلفة (`400w` = عرض الصورة الحقيقي 400px) |
-| `sizes` | بيقول للمتصفح الصورة هتتعرض بعرض قد إيه (هنا: 100% من الشاشة لو الشاشة ≤ 600px، غير كده نصها) — عشان يختار أنسب نسخة من الـ srcset |
+| `sizes` | بيقول للمتصفح الصورة هتتعرض بعرض قد إيه (هنا: 100% من الشاشة لو عرض الشاشة 600px أو أقل، غير كده نصها) — عشان يختار أنسب نسخة من الـ srcset |
 | `<picture>` + `<source>` | لما تكون عايز صورة **مختلفة** (crop تاني أو format تاني) حسب الشاشة. الـ `<img>` جواها **إجباري** وهو الـ fallback |
 | `loading="lazy"` | الصورة متتحملش غير لما اليوزر يقرّب منها بالـ scroll — للصور اللي تحت في الصفحة، **مش** الصور اللي فوق أول ما الصفحة تفتح |
 
@@ -519,7 +519,7 @@ site/
       <li>HTML</li>
       <li>CSS</li>
     </ul>
-  </li>          <!-- ← الـ </li> بعد الـ </ul> الداخلية -->
+  </li>          <!-- الـ </li> هنا بعد الـ </ul> الداخلية -->
   <li>Server Languages</li>
 </ul>
 ```
@@ -771,7 +771,7 @@ site/
 
 # المحاضرة 03 — Semantic HTML, Accessibility & CSS Fundamentals
 
-المحاضرة 4 أجزاء: **Forms** ← **Metadata** ← **Semantic Tags** ← **CSS**.
+المحاضرة 4 أجزاء: **Forms** → **Metadata** → **Semantic Tags** → **CSS**.
 
 ## الجزء 1 — HTML Forms
 
@@ -1046,7 +1046,7 @@ site/
 | **Heading** | المفروض يبقى ليه | المفروض يبقى ليه |
 | **Nesting** | ممكن يحتوي `<section>` | ممكن يحتوي `<article>` |
 
-> 🧪 **اختبار سريع:** لو خدت الحتة دي وحطيتها في موقع تاني لوحدها، هتفضل مفهومة؟ أيوه ← `<article>`. لأ ← `<section>`.
+> 🧪 **اختبار سريع:** لو خدت الحتة دي وحطيتها في موقع تاني لوحدها، هتفضل مفهومة؟ لو أيوه يبقى `<article>`، ولو لأ يبقى `<section>`.
 
 ### 3.12 حل تمرين "Fix the Div Soup"
 
@@ -1198,7 +1198,7 @@ selector {
 ```
 
 ```css
-p {                      /* ← selector: مين اللي هيتعمله style */
+p {                      /* الـ selector: مين اللي هيتعمله style */
   color: red;            /* ← declaration = property: value; */
   font-family: sans-serif;
 }
@@ -1261,11 +1261,18 @@ li cite { font-weight: bold;  color: blue; }   /* Rule 3: أدق — cite جوه
 | الـ `<cite>` موجود فين | لونه | ليه |
 |---|---|---|
 | مش جوه `<p>` ولا `<li>` | 🟢 green | Rule 1 بس اللي بتنطبق |
-| جوه `<p>` | 🔴 red | `p cite` بتسمّي **2** elements، و `cite` بتسمّي **1** ← Rule 2 أدق فتكسب |
+| جوه `<p>` | 🔴 red | `p cite` بتسمّي **2** elements، و `cite` بتسمّي **1**، فـ Rule 2 أدق وبتكسب |
 | جوه `<li>` | 🔵 blue | Rule 3 بتغلب Rule 1 بنفس الطريقة |
 
 ترتيب القوة باختصار (هتتشرح بالتفصيل في محاضرة Cascade & Specificity):
-**Tag** < **Descendant بتاجات أكتر** < **Class** < **ID** < **Inline style**
+
+| من الأضعف للأقوى | الـ Selector | مثال |
+|---|---|---|
+| 1 (أضعف) | Tag | `cite` |
+| 2 | Descendant بتاجات أكتر | `p cite` |
+| 3 | Class | `.warning` |
+| 4 | ID | `#important` |
+| 5 (أقوى) | Inline style | `style="..."` |
 
 ### 3.21 الـ Classes والـ IDs
 
